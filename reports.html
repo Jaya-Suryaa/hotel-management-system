@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports - Hotel Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+        }
+
+        h2 {
+            color: #495057;
+            margin-top: 20px;
+        }
+
+        div {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        select {
+            width: calc(33% - 10px);
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e9ecef;
+        }
+        nav {
+      background-color: #007bff;
+      padding: 10px;
+      color: white;
+      text-align: center;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <h1>Hotel Reports</h1>
+    <nav>
+        <a href="index.html">Rooms</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="guest.html">Guests</a>
+        <a href="reports.html">Reports</a>
+      </nav>
+    <div>
+        <h2>Generate Report</h2>
+        <select>
+            <option>Select Report Type</option>
+            <option>Room Occupancy</option>
+            <option>Revenue</option>
+            <option>Bookings</option>
+        </select>
+        <button>Generate Report</button>
+    </div>
+
+    <h2>Generated Reports</h2>
+    <table>
+        <tr>
+            <th>Report Type</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td>Room Occupancy</td>
+            <td>2024-10-01</td>
+            <td><button>Download</button></td>
+        </tr>
+        <!-- Add more static rows as needed -->
+    </table>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hotelApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Hotel Management System</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="controllers/roomController.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #343a40;
+    }
+
+    h2 {
+      color: #495057;
+      margin-top: 20px;
+    }
+
+    nav {
+      background-color: #007bff;
+      padding: 10px;
+      color: white;
+      text-align: center;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    div {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-left: 10px; /* Space between inputs and button */
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .search-container input[type="text"] {
+      flex: 1; /* Take available space */
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #dee2e6;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #e9ecef;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #343a40;
+      color: white;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body ng-controller="RoomController">
+  <h1>Hotel Room Management</h1>
+
+  <nav>
+    <a href="#/rooms">Rooms</a>
+    <a href="bookings.html">Bookings</a>
+    <a href="guest.html">Guests</a>
+    <a href="reports.html">Reports</a>
+  </nav>
+<center><img src="C:\Users\matha\OneDrive\Pictures\ho.jpeg" alt="hotel" height="450" width="1350" /></center>
+  <div class="search-container">
+    <input type="text" ng-model="searchQuery" placeholder="Search Rooms..." />
+  </div>
+
+  <div>
+    <h2>Add Room</h2>
+    <div class="form-group">
+      <input type="number" ng-model="newRoom.roomNumber" placeholder="Room Number" required />
+      <input type="text" ng-model="newRoom.type" placeholder="Type" required />
+      <input type="number" ng-model="newRoom.price" placeholder="Price" required />
+      <button ng-click="addRoom()">Add Room</button>
+    </div>
+  </div>
+
+  <h2>Room List</h2>
+  <table>
+    <tr>
+      <th>Room Number</th>
+      <th>Type</th>
+      <th>Price</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    <tr ng-repeat="room in rooms | filter:searchQuery">
+      <td>{{ room.roomNumber }}</td>
+      <td>{{ room.type }}</td>
+      <td>{{ room.price }}</td>
+      <td>{{ room.status }}</td>
+      <td>
+        <button ng-click="deleteRoom(room._id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+
+  <footer>
+    <p>&copy; 2024 Hotel Management System. All rights reserved.</p>
+  </footer>
+</body>
+</html>
